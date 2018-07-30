@@ -1,0 +1,24 @@
+#include <string>
+main(){
+    new str{} = "Hello my old friend"
+  	new startIndex, endIndex;
+
+  	new len = strlen(str);
+  	endIndex = len - 1;
+
+  	for(new i = endIndex; i >= 0; i--){
+		if(str{i} == ' ' || i == 0){
+			if(i == 0){
+				startIndex = 0;
+			}
+			else{
+				startIndex = i + 1;
+			}
+			for(new j = startIndex; j <= endIndex; j++){
+				printf("%c", str{j});
+			}
+			endIndex = i - 1;
+			printf(" ");
+		}
+	}
+}
