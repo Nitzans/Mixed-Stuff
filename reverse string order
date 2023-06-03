@@ -1,0 +1,55 @@
+#include <string>
+main(){
+	new str{} = "Hello my old friend"
+	new startIndex, endIndex;
+  	new len = strlen(str);
+  	endIndex = len - 1;
+
+  	for(new i = endIndex; i > 0; i--){
+		if(str{i} == ' '){
+            		startIndex = i + 1;
+
+            		for(new j = startIndex; j <= endIndex; j++)
+                		printf("%c", str{j});
+            		printf(" ");
+            		endIndex = i - 1;
+        	}
+	}
+
+    	for(new j = 0; j <= endIndex; j++)
+        	printf("%c", str{j});
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#include <string>
+main(){
+    	new str{} = "Hello my old friend"
+  	new startIndex, endIndex;
+
+  	new len = strlen(str);
+  	endIndex = len - 1;
+    	new count = 0;
+  	for(new i = endIndex; i > 0; i--){
+		if(str{i} == ' ' && count==0){
+			str{i+1}-=32
+			startIndex = i + 1;
+			count+=1
+			for(new j = startIndex; j <= endIndex; j++)
+				printf("%c", str{j});
+			endIndex = i - 1;
+		}
+
+		if(str{i} == ' '){
+			startIndex = i + 1;
+
+			for(new j = startIndex; j <= endIndex; j++)
+				printf("%c", str{j});
+			printf(" ");
+			endIndex = i - 1;
+		}
+	}
+
+    	for(new j = 0; j <= endIndex; j++){
+        	str{0}+=32
+        	printf("%c", str{j});
+    	}
+}
